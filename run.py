@@ -61,7 +61,15 @@ def valid_data(values):
     return True
 
 
-get_sales_data()
 
+
+def mainprogram():
+    """
+    Runs all program functions
+    """
+    get_sales_data()
+
+mainprogram()
+    
 
 
