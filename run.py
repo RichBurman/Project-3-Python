@@ -60,14 +60,25 @@ def valid_data(values):
         return False
     return True
 
-
+def update_worksheet(data, worksheet):
+    """
+    Takes the user entered integers to be sent to the google worksheet
+    Updates the worksheet with the valid data provided by the user
+    Updates user via terminal that data been sent succesfully to worksheet
+    """
+    print(f"Updating {worksheet} worksheet with daily pizza sales...\n")
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row(data)
+    print(f"The {worksheet} worksheet updated successfully\n")
 
 
 def mainprogram():
     """
     Runs all program functions
     """
-    get_sales_data()
+    data = get_sales_data()
+    sales_data = [int(num) for num in data]
+    update_worksheet(sales_data,"sales" )
 
 mainprogram()
     
