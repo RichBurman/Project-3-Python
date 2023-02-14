@@ -12,8 +12,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('pizza_world')
 
-sales = SHEET.worksheet('sales')
-
 def get_sales_data():
 
     """
@@ -71,6 +69,23 @@ def update_worksheet(data, worksheet):
     worksheet_to_update.append_row(data)
     print(f"The {worksheet} worksheet updated successfully\n")
 
+def calculate_surplus_data(sales_row):
+    """
+    Takes sales data and subtracts from stock to provide the surplus for each pizza
+
+    Positive number in surplus shows wasted pizzas
+    Negative number in surplus shows extra pizzas were made during day 
+    """
+    print("calculating surplus pizza data...\n")
+    stock = SHEET.worksheet("stock").get_all_values()
+    stock_row = stock[-1]
+
+    surplus_data = []
+    for stock, sales in zip(stock_row, sales_row):
+        surplus = int(stock) - sales
+        surplus_data.append(surplus)
+    
+    return surplus_data
 
 def mainprogram():
     """
@@ -78,9 +93,8 @@ def mainprogram():
     """
     data = get_sales_data()
     sales_data = [int(num) for num in data]
-    update_worksheet(sales_data,"sales" )
+    update_worksheet(sales_data, "sales")
+    new_surplus_data = calculate_surplus_data(sales_data)
+    update_worksheet(new_surplus_data, 'surplus')
 
 mainprogram()
-    
-
-
