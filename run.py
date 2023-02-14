@@ -29,15 +29,37 @@ def get_sales_data():
         print("Please enter 3 numbers, which are seperated by commas")
         print("Example: 10,10,10\n")
 
-        data_str = input('Please enter Cheese, Ham and Sausage sales for today here:\n')
+        data_str = input('Please enter Cheese, Ham and Sausage sales for today:\n')
 
         sales_data = data_str.split(",")
 
-        
-        print("Thank you, the data you have entered is valid")
-        break
+        if valid_data(sales_data):
+            print("Thank you, the data you have entered is valid")
+            break
 
     return sales_data
+
+
+
+def valid_data(values):
+    """
+    Checks all data inputted by the user for the sales of pizza is valid. 
+    Converts all string values into integers (to transfer to google worksheet)
+    ValueError raised if string can not be coverted into integer and/or if 
+    3 values not entered by the user. 
+    """
+
+    try:
+        [int(value) for value in values]
+        if len(values) != 3:
+            raise ValueError(
+                f"Please ensure you enter 3 values, you entered {len(values)}"
+            )
+    except ValueError as e:
+        print(f"Invalid data entered: {e}, please try again.\n")
+        return False
+    return True
+
 
 get_sales_data()
 
