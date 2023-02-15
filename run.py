@@ -117,13 +117,14 @@ def profit_pizza():
     profits = SHEET.worksheet("sales").get_all_values()
     profit_row = profits[-1]
 
-    cheese_profit = int(profit_row[0]) * 5
+    cheese_profits = int(profit_row[0]) * 5
     ham_profits = int(profit_row[1]) * 8
     sausage_profits = int(profit_row[2]) * 10
 
-    profit_data = [cheese_profit, ham_profits, sausage_profits]
-    
+    profit_data = [cheese_profits, ham_profits, sausage_profits]
+
     return profit_data
+
 
 def mainprogram():
     """
@@ -138,15 +139,11 @@ def mainprogram():
     update_worksheet(stock_data, "stock")
     profit_data = profit_pizza()
     update_worksheet(profit_data, "profit")
+    row_profit = sum(profit_data)
     print("Today Pizza Figures!!!\n")
     print(f"Sales Today {sales_data}\n")
     print(f"Profit Today {profit_data}\n")
-
+    print(f"Total Daily Profit £{row_profit}\n")
+    
 
 mainprogram()
-
-
-
-
-
-
