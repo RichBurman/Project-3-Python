@@ -104,6 +104,23 @@ def add_stock_data():
     return new_stock_data
 
 
+def profit_pizza():
+    """
+    Calculate the profit made per pizza 
+    Pizza:
+    Sells £10
+    Cost £5
+    Profit £5 per pizza
+    """
+    profits = SHEET.worksheet("sales").get_all_values()
+    profit_row = profits[-1]
+
+    profit_data = []
+    for sales in (profit_row):
+        profit = int(sales) * 5
+        profit_data.append(profit)
+    print(profit_data)
+
 def mainprogram():
     """
     Runs all program functions
@@ -117,7 +134,9 @@ def mainprogram():
     update_worksheet(stock_data, "stock")
 
 
-mainprogram()
+#mainprogram()
+profit_pizza()
+
 
 
 
