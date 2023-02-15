@@ -87,6 +87,23 @@ def calculate_surplus_data(sales_row):
     
     return surplus_data
 
+
+def add_stock_data():
+    """
+    Add the daily stock for each pizza type
+    Company makes 20 of each pizza daily 
+    """
+    print("Adding new stock data...\n ")
+
+    stock = SHEET.worksheet("stock")
+
+    new_stock_data = []
+    daily_stock = [20, 20, 20]
+    stock.append_row(daily_stock)
+    
+    return new_stock_data
+
+
 def mainprogram():
     """
     Runs all program functions
@@ -96,5 +113,11 @@ def mainprogram():
     update_worksheet(sales_data, "sales")
     new_surplus_data = calculate_surplus_data(sales_data)
     update_worksheet(new_surplus_data, 'surplus')
+    stock_data = add_stock_data()
+    update_worksheet(stock_data, "stock")
+
 
 mainprogram()
+
+
+
