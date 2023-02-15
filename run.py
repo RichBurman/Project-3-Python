@@ -117,10 +117,11 @@ def profit_pizza():
     profits = SHEET.worksheet("sales").get_all_values()
     profit_row = profits[-1]
 
-    profit_data = []
-    for sales in (profit_row):
-        profit = int(sales) * 5
-        profit_data.append(profit)
+    cheese_profit = int(profit_row[0]) * 5
+    ham_profits = int(profit_row[1]) * 8
+    sausage_profits = int(profit_row[2]) * 10
+
+    profit_data = [cheese_profit, ham_profits, sausage_profits]
     
     return profit_data
 
@@ -143,6 +144,7 @@ def mainprogram():
 
 
 mainprogram()
+
 
 
 
