@@ -119,7 +119,8 @@ def profit_pizza():
     for sales in (profit_row):
         profit = int(sales) * 5
         profit_data.append(profit)
-    print(profit_data)
+    
+    return profit_data
 
 def mainprogram():
     """
@@ -132,10 +133,12 @@ def mainprogram():
     update_worksheet(new_surplus_data, 'surplus')
     stock_data = add_stock_data()
     update_worksheet(stock_data, "stock")
+    profit_data = profit_pizza()
+    update_worksheet(profit_data, "profit")
 
 
-#mainprogram()
-profit_pizza()
+mainprogram()
+
 
 
 
