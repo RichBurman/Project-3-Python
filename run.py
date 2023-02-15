@@ -12,18 +12,22 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('pizza_world')
 
+
 def get_sales_data():
 
     """
-    Get sales for the 3 types of pizza. This will be inputted by the user. 
-    This will run a while loop to collect valid data from the user via the terminal.
-    Data must be a string of 3 numbers seperated by commas. The loop will continue to request
+    Get sales for the 3 types of pizza.
+    This will be inputted by the user.
+    This will run a while loop to collect valid data
+    from the user via the terminal.
+    Data must be a string of 3 numbers seperated by commas.
+    The loop will continue to request
     data until it is valid.
     """
 
     while True:
         print("Welcome to Pizza World sales!")
-        print("Please enter sales for Cheese, Ham and Sausage Pizzas")
+        print("Please enter sales for Cheese, Ham and Sausage")
         print("Please enter 3 numbers, which are seperated by commas")
         print("Example: 10,10,10\n")
 
@@ -38,13 +42,12 @@ def get_sales_data():
     return sales_data
 
 
-
 def valid_data(values):
     """
-    Checks all data inputted by the user for the sales of pizza is valid. 
+    Checks all data inputted by the user for the sales of pizza is valid.
     Converts all string values into integers (to transfer to google worksheet)
-    ValueError raised if string can not be coverted into integer and/or if 
-    3 values not entered by the user. 
+    ValueError raised if string can not be coverted into integer and/or if
+    3 values not entered by the user.
     """
 
     try:
@@ -58,6 +61,7 @@ def valid_data(values):
         return False
     return True
 
+
 def update_worksheet(data, worksheet):
     """
     Takes the user entered integers to be sent to the google worksheet
@@ -69,12 +73,14 @@ def update_worksheet(data, worksheet):
     worksheet_to_update.append_row(data)
     print(f"The {worksheet} worksheet updated successfully\n")
 
+
 def calculate_surplus_data(sales_row):
     """
-    Takes sales data and subtracts from stock to provide the surplus for each pizza
+    Takes sales data and subtracts from stock
+    to provide the surplus for each pizza
 
     Positive number in surplus shows wasted pizzas
-    Negative number in surplus shows extra pizzas were made during day 
+    Negative number in surplus shows extra pizzas were made during day
     """
     print("Calculating surplus pizza data...\n")
     stock = SHEET.worksheet("stock").get_all_values()
@@ -84,14 +90,13 @@ def calculate_surplus_data(sales_row):
     for stock, sales in zip(stock_row, sales_row):
         surplus = int(stock) - sales
         surplus_data.append(surplus)
-    
     return surplus_data
 
 
 def add_stock_data():
     """
     Add the daily stock for each pizza type
-    Company makes 20 of each pizza daily 
+    Company makes 20 of each pizza daily
     """
     print("Adding new stock data...\n ")
 
@@ -100,13 +105,13 @@ def add_stock_data():
     new_stock_data = []
     daily_stock = [20, 20, 20]
     stock.append_row(daily_stock)
-    
+
     return new_stock_data
 
 
 def profit_pizza():
     """
-    Calculate the profit made per pizza 
+    Calculate the profit made per pizza
     Pizza:
     Sells £10
     Cost £5
@@ -147,6 +152,6 @@ def mainprogram():
     print(f"Sales Today {sales_data}\n")
     print(f"Profit Today {profit_data}\n")
     print(f"Total Daily Profit £{row_profit}\n")
-    
+
 
 mainprogram()
