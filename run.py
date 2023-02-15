@@ -128,7 +128,10 @@ def profit_pizza():
 
 def mainprogram():
     """
-    Runs all program functions
+    Runs all program functions and displays prints to user with
+    - sales for the day
+    - profit for the day
+    - total profit for the day
     """
     data = get_sales_data()
     sales_data = [int(num) for num in data]
