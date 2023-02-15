@@ -76,7 +76,7 @@ def calculate_surplus_data(sales_row):
     Positive number in surplus shows wasted pizzas
     Negative number in surplus shows extra pizzas were made during day 
     """
-    print("calculating surplus pizza data...\n")
+    print("Calculating surplus pizza data...\n")
     stock = SHEET.worksheet("stock").get_all_values()
     stock_row = stock[-1]
 
@@ -112,6 +112,8 @@ def profit_pizza():
     Cost £5
     Profit £5 per pizza
     """
+
+    print("Adding new profit data...\n ")
     profits = SHEET.worksheet("sales").get_all_values()
     profit_row = profits[-1]
 
@@ -135,6 +137,9 @@ def mainprogram():
     update_worksheet(stock_data, "stock")
     profit_data = profit_pizza()
     update_worksheet(profit_data, "profit")
+    print("Today Pizza Figures!!!\n")
+    print(f"Sales Today {sales_data}\n")
+    print(f"Profit Today {profit_data}\n")
 
 
 mainprogram()
