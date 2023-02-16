@@ -131,7 +131,7 @@ def profit_pizza():
     return profit_data
 
 
-def mainprogram():
+def main_program():
     """
     Runs all program functions and displays prints to user with
     - sales for the day
@@ -154,4 +154,4 @@ def mainprogram():
     print(f"Total Daily Profit £{row_profit}\n")
 
 
-mainprogram()
+main_program()
