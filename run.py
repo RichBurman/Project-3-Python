@@ -31,7 +31,7 @@ def get_sales_data():
         print("Please enter 3 numbers, which are seperated by commas")
         print("Example: 10,10,10\n")
 
-        data_str = input('Please enter Cheese, Ham and Sausage sales for today:\n')
+        data_str = input('Please enter Cheese, Ham and Sausage sales:\n')
 
         sales_data = data_str.split(",")
 
