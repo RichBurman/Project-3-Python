@@ -113,9 +113,9 @@ def profit_pizza():
     """
     Calculate the profit made per pizza
     Pizza:
-    Sells £10
-    Cost £5
-    Profit £5 per pizza
+    Cheese Pizza - £5 per pizza
+    Ham Pizza - £8 per pizza
+    Sausage Pizza - £10 per pizza
     """
 
     print("Adding new profit data...\n ")
