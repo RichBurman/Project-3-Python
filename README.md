@@ -101,7 +101,7 @@ PizzaWorld provies the user with a tool, that allows them to store sales data, c
 
 I have manually tested this project by doing the following:
 
-    - Passed the code trhough a PEP8 linter and confirmed there are no problems
+    - Passed the code through a PEP8 linter and confirmed there are no problems
     - Given invalid inputs: strings when numbers are expected, more than 3 numbers
     - Tested in my local terminal and the Code Institue Heroku terminal
 
