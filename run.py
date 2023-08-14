@@ -181,37 +181,59 @@ def profit_loss_report():
     print("=" * 70)
     print(f"{'Total Profit:':<60}{total_profit:>10}\n")
 
+# Search for sales data by date
+
+def search_sales_by_date():
+    print("Search Sales Data by Date\n")
+    target_date = input("Enter the date (YYYY-MM-DD): ")
+    sales_data = SHEET.worksheet('sales').get_all_values()
+
+    for row in sales_data:
+        date = row[0]
+        if date == target_date:
+            cheese_sales = row[1]
+            ham_sales = row[2]
+            sausage_sales = row[3]
+            print(f"Date: {date}\n")
+            print(f"Cheese Pizza Sales: {cheese_sales}")
+            print(f"Ham Pizza Sales: {ham_sales}")
+            print(f"Sausage Pizza Sales: {sausage_sales}\n")
+            print("-" * 30)
+            return
+        
+    print(f"No sales data found for {target_date}")
+
+search_sales_by_date()
 
 
 
+# def user_menu():
+#     while True:
+#         print("Welcome to Pizza World")
+#         print("1. Enter Sales Data")
+#         print("2. Order New Stock")
+#         print("3. View Current Stock Levels")
+#         print("4. View Sales Report (Shows all sales data)")
+#         print("5. View Profit Report")
+#         print("6. Quit\n")
+#         choice = input("Enter your choice: ")
+#         if choice == "1":
+#             enter_sales_data()
+#         elif choice == "2":
+#             order_new_stock()
+#         elif choice == "3":
+#             view_stock_levels()
+#         elif choice == "4":
+#             sales_report()
+#         elif choice == "5":
+#             profit_loss_report()
+#         elif choice == "6":
+#             print("Goodbye!")
+#             break
+#     else:
+#         print("Invalid choice. Please select a valid option.\n")
 
-def user_menu():
-    while True:
-        print("Welcome to Pizza World")
-        print("1. Enter Sales Data")
-        print("2. Order New Stock")
-        print("3. View Current Stock Levels")
-        print("4. View Sales Report (Shows all sales data)")
-        print("5. View Profit Report")
-        print("6. Quit\n")
-        choice = input("Enter your choice: ")
-        if choice == "1":
-            enter_sales_data()
-        elif choice == "2":
-            order_new_stock()
-        elif choice == "3":
-            view_stock_levels()
-        elif choice == "4":
-            sales_report()
-        elif choice == "5":
-            profit_loss_report()
-        elif choice == "6":
-            print("Goodbye!")
-            break
-    else:
-        print("Invalid choice. Please select a valid option.\n")
-
-user_menu()
+# user_menu()
 
 
 
