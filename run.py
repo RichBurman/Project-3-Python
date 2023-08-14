@@ -74,6 +74,12 @@ def enter_sales_data():
     
 enter_sales_data()
 
+def order_new_stock()
+
+"""
+This function will allow the user to order new stock for each type of pizza. It will update the stock worksheet. 
+"""
+
 
 
 
