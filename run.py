@@ -1,5 +1,6 @@
 import gspread
 import re
+import datetime
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -208,8 +209,20 @@ def search_sales_by_date():
     This function allows the user to search for sales data from a specific date inputted by the user. 
     """
     print("Search Sales Data by Date\n")
-    target_date = input("Enter the date (YYYY-MM-DD): ")
+    
+    # Function to get valid date input
+    def get_valid_date_input(prompt):
+        while True:
+            try:
+                date_input = input(prompt)
+                datetime.datetime.strptime(date_input, '%Y-%m-%d')
+                return date_input
+            except ValueError:
+                print("Invalid date format. Please enter a date in the format YYYY-MM-DD.")
+    
+    target_date = get_valid_date_input("Enter the date (YYYY-MM-DD): ")
     sales_data = SHEET.worksheet('sales').get_all_values()
+    found_data = False 
 
     for row in sales_data:
         date = row[0]
@@ -222,9 +235,11 @@ def search_sales_by_date():
             print(f"Ham Pizza Sales: {ham_sales}")
             print(f"Sausage Pizza Sales: {sausage_sales}\n")
             print("-" * 30)
-            return
-        
-    print(f"No sales data found for {target_date}")
+            found_data = True
+            break
+    if not found_data:
+        print(f"No sales data found for that date")
+
 
 def most_profitable_pizza():
     """
