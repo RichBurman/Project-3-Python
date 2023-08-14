@@ -98,6 +98,12 @@ def order_new_stock():
 
 order_new_stock()
 
+def view_stock_levels():
+    """
+    This function allows the user to view the current stock levels for all 3 types of pizza. 
+    """
+
+    
 
 
 
