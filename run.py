@@ -59,6 +59,14 @@ def enter_sales_data():
     sales_data = [date, cheese_sales, ham_sales, sausage_sales]
     SHEET.worksheet("sales").append_row(sales_data)
     print("The Sales data has been entered successfully and been added to the Sales Worksheet!\n")
+
+    cheese_profit = cheese_sales * CHEESE_PIZZA_COST
+    ham_profit = ham_sales * HAM_PIZZA_COST
+    sausage_profit = sausage_sales * SAUSAGE_PIZZA_COST
+    total_profit = cheese_profit + ham_profit + sausage_profit
+    profit_sheet = SHEET.worksheet("profit")
+    profit_sheet.append_row([date, cheese_profit, ham_profit, sausage_profit, total_profit])
+    print("Profit and loss updated successfully!\n")
     
 enter_sales_data()
 
