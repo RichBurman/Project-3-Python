@@ -45,7 +45,51 @@ Pizza World allows the user to perform various functions which are listed below:
 
 ### Menu
 
-Pizza World welcomes users to it's menu. This allows users to 
+<img src="assets/images/README/menu.png" width="500" height="400" alt="Image of Flowchart"> 
+
+Pizza World welcomes users to it's menu. This allows users to select out of 8 options depending on what function they would like to perform
+
+1. Enter Sales Data
+ 2. Order New Stock
+ 3. View Current Stock Levels
+ 4. View Sales Report (Shows all sales data)
+ 5. View Profit Report
+ 6. Search for sales data by date
+ 7. View the most profitable pizza
+ 8. Quit
+
+The user has to enter the number of their choice. It must be a number between 1-8 otherwise it will fail validation checks and the user is returned to the menu. 
+
+<img src="assets/images/README/menu_valid.png" alt="Image of Flowchart"> 
+
+
+#### Enter Sales Data
+
+The function allows the user to enter the sales data for the 3 pizzas, the user can select the date for the sales data to be assigned to. 
+
+First the user has to enter the date for the data. 
+
+<img src="assets/images/README/sales_data_date.png"  alt="Image of Flowchart"> 
+
+Once the user has entered the date, the user inputs the sales data for each type of pizza. 
+
+<img src="assets/images/README/sales_data_enter.png" alt="Image of Flowchart"> 
+
+Once this data has been inputted correctly, the user is informed that all data has been entered successfully and the Sales worksheet has been updated with the data. 
+
+In addition to this, the profit and loss worksheet has been updated successfully, as this calculates the number of pizzas sold by their respectively cost and this data, along with the total profit from the sale of all pizzas for that entry is saved in the profit worksheet. 
+
+Finally the stock worksheet is updated. The numbers of pizzas that were inputted in the sales date for each pizza is subtracted from the respective stock of that type of pizza and updates the stock number, to show how much stock is remaining of each pizza. 
+
+<img src="assets/images/README/sales_data_success.png" alt="Image of Flowchart"> 
+
+##### If stock levels are lower than 50 when sales data entered
+
+After a user has inputted the sales data successfully, if stock levels for a pizza has dropped below 50, a message will print to inform the user than the current stock on that particular pizza is low and they may want to consider ordering more stock. 
+
+<img src="assets/images/README/low_stock.png" alt="Image of Flowchart"> 
+
+
 
 
 
@@ -71,7 +115,7 @@ Manual testing example below:
  ### Solved Bugs
 
 - I was receiving an error index because I had forgotten to add 'int' at the start of the various (profit_row). I fixed this by adding 'int' to all of the profit_row variables, which allowed the calculation to take place.
-<img src="assets/images/README/solved_bug.png" width="500" height="250" alt="Image of solved bug"> 
+<img src="assets/images/README/solved_bug.png" width="150" height="300" alt="Image of solved bug"> 
 
 
 ### Remaining Bugs
