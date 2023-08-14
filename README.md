@@ -43,11 +43,11 @@ Pizza World allows the user to perform various functions which are listed below:
 
 ## How it works
 
-### Menu
+### User Menu
 
-<img src="assets/images/README/menu.png" width="500" height="400" alt="Image of Flowchart"> 
+<img src="assets/images/README/menu.png" width="500" height="400" alt="Image of User Menu"> 
 
-Pizza World welcomes users to it's menu. This allows users to select out of 8 options depending on what function they would like to perform
+Pizza World welcomes users to it's User menu. This allows users to select out of 8 options depending on what function they would like to perform
 
 1. Enter Sales Data
  2. Order New Stock
@@ -60,7 +60,7 @@ Pizza World welcomes users to it's menu. This allows users to select out of 8 op
 
 The user has to enter the number of their choice. It must be a number between 1-8 otherwise it will fail validation checks and the user is returned to the menu. 
 
-<img src="assets/images/README/menu_valid.png" alt="Image of Flowchart"> 
+<img src="assets/images/README/menu_valid.png" alt="Image of menu validation"> 
 
 
 #### 1 Enter Sales Data
@@ -69,11 +69,11 @@ The function allows the user to enter the sales data for the 3 pizzas, the user 
 
 First the user has to enter the date for the data. 
 
-<img src="assets/images/README/sales_data_date.png"  alt="Image of Flowchart"> 
+<img src="assets/images/README/sales_data_date.png"  alt="Image of Sales Data"> 
 
 Once the user has entered the date, the user inputs the sales data for each type of pizza. 
 
-<img src="assets/images/README/sales_data_enter.png" alt="Image of Flowchart"> 
+<img src="assets/images/README/sales_data_enter.png" alt="Image of Sales Data being entered"> 
 
 Once this data has been inputted correctly, the user is informed that all data has been entered successfully and the Sales worksheet has been updated with the data. 
 
@@ -81,13 +81,13 @@ In addition to this, the profit and loss worksheet has been updated successfully
 
 Finally the stock worksheet is updated. The numbers of pizzas that were inputted in the sales date for each pizza is subtracted from the respective stock of that type of pizza and updates the stock number, to show how much stock is remaining of each pizza. 
 
-<img src="assets/images/README/sales_data_success.png" alt="Image of Flowchart"> 
+<img src="assets/images/README/sales_data_success.png" alt="Image of Sales Data entered successfully"> 
 
 ##### If stock levels are lower than 50 when sales data entered
 
 After a user has inputted the sales data successfully, if stock levels for a pizza has dropped below 50, a message will print to inform the user than the current stock on that particular pizza is low and they may want to consider ordering more stock. 
 
-<img src="assets/images/README/low_stock.png" alt="Image of Flowchart"> 
+<img src="assets/images/README/low_stock.png" alt="Image of low stock message"> 
 
 #### 2 Order New Stock
 
@@ -113,7 +113,7 @@ In addition to this, the updated stock levels are displayed to the user, show th
 
 This function allows the user to view the current stock levels of all 3 pizza types. It will display the stock levels of all pizzas and return the user to the user menu. 
 
-<img src="assets/images/README/view_stock.png" alt="Image of Updated stock">
+<img src="assets/images/README/view_stock.png" alt="Image of viewing stock">
 
 #### 4 View Sales Report
 
@@ -125,21 +125,21 @@ This function allows the user to view the sales data that has been entered in th
 
 This function allows the user to view the profit data of the pizza for all the sales data dates. 
 
-<img src="assets/images/README/profit_report.png" alt="Image of the sales data report">
+<img src="assets/images/README/profit_report.png" alt="Image of the profit report">
 
 #### 6 Search for sales data by date
 
 This function allows the user to search for a specific sales data entry by it's date. 
 
-<img src="assets/images/README/search_by_date.png" alt="Image of the sales data report">
+<img src="assets/images/README/search_by_date.png" alt="Image of the searching sales data by date">
 
 Once the user input the date, the user is shown that sales data entry. 
 
-<img src="assets/images/README/search_by_date_success.png" alt="Image of the sales data report">
+<img src="assets/images/README/search_by_date_success.png" alt="Image of searching sales data by date success">
 
 However, if there is no sales data for that given date, the user is informed that there is no sales data for that date. 
 
-<img src="assets/images/README/search_by_date_nodata.png" alt="Image of the sales data report">
+<img src="assets/images/README/search_by_date_nodata.png" alt="Image of search by date showing no data found">
 
 #### 7 View the most profitable pizza
 
@@ -147,7 +147,7 @@ This function allows the user to view which pizza has provided the most profit t
 
 It displays the profit of all pizza sales of the respective type of pizza and then below it displays which is the most profitable pizza. 
 
-<img src="assets/images/README/profit_pizza.png" alt="Image of the sales data report">
+<img src="assets/images/README/profit_pizza.png" alt="Image of most profitable pizza data">
 
 - Future Features
 
@@ -176,7 +176,7 @@ Manual testing example below:
 
 The user can only enter numbers between 1-8 that will be accepted to access the functions. 
 
-<img src="assets/images/README/menu_valid.png" alt="Image of the sales data report">
+<img src="assets/images/README/menu_valid.png" alt="Image of the User Menu Validation">
 
 In addition to this, all number choices lead to the correct function as expected. 
 
@@ -185,13 +185,13 @@ In addition to this, all number choices lead to the correct function as expected
 
 The user can only enter numbers in the correct format to be accepted by the function. 
 
-<img src="assets/images/README/sales_date_date_valid.png" alt="Image of the sales data report">
+<img src="assets/images/README/sales_date_date_valid.png" alt="Image of the sales data validation">
 
 ### 2 Order New Stock
 
 The user can only enter numbers to order new stock. 
 
-<img src="assets/images/README/order_stock_num.png" alt="Image of the sales data report">
+<img src="assets/images/README/order_stock_num.png" alt="Image of the order stock validation">
 
 
 ### 3 View Current stock levels
@@ -210,16 +210,16 @@ The user does not need to enter any data, other than the menu choice in the menu
 
 The user has to input the date in the correct format to be accepted. 
  
-<img src="assets/images/README/sales_date_valid.png" alt="Image of the sales data report">
+<img src="assets/images/README/sales_date_valid.png" alt="Image of the search for sales data by data validation">
 
 Once this is entered, the function works as expected and will display sales data linked to that date if it exists, otherwise it will display a message saying that sales data is not found.
 
 
-<img src="assets/images/README/search_by_date_success.png" alt="Image of the sales data report">
+<img src="assets/images/README/search_by_date_success.png" alt="Image of the search sales data by date success">
 
 However, if there is no sales data for that given date, the user is informed that there is no sales data for that date. 
 
-<img src="assets/images/README/search_by_date_nodata.png" alt="Image of the sales data report">
+<img src="assets/images/README/search_by_date_nodata.png" alt="Image of the search sales data by date finding no data for that date">
 
 ### 7 View the most profitable pizza
 
@@ -234,8 +234,9 @@ The user does not need to enter any data, other than the menu choice in the menu
  ### Solved Bugs
 
  - I had an error when first entering stock levels for the first time. If the stock levels aren't on the spreadsheet as a number to begin, any new stock was trying to add to the headings of the columns. I solved this by adding the first line of starting stock to the spreadsheet and this then worked with the project. 
+ - I had an bug when I was adding new stock. All stock was being added to the cheese pizza type. I solved this by adding the following code
 
-
+ <img src="assets/images/README/bug1.png" alt="bug">
 
 
 ### Remaining Bugs
@@ -247,7 +248,7 @@ The user does not need to enter any data, other than the menu choice in the menu
 - PEP8
     - No errors were returned from pep8ci.herokuapp.com expect for 'line too long' errors
 
-<img src="assets/images/README/CI_python_linter.png">
+<img src="assets/images/README/CI_python_linter.png" alt="Python Linter Image Report">
 
 ## Deployment
 
