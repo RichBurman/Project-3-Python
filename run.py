@@ -203,40 +203,65 @@ def search_sales_by_date():
         
     print(f"No sales data found for {target_date}")
 
+def most_profitable_pizza():
+    print("Most Profitable Pizza Type\n")
+    profits = SHEET.worksheet("profit").get_all_values()
+    
+    pizza_types = ["Cheese", "Ham", "Sausage"]
+    pizza_profits = [0, 0, 0]
+    
+    for profit_row in profits[1:]:
+        for i, profit in enumerate(profit_row[1:4]):
+            pizza_profits[i] += int(profit)
+    
+    max_profit = max(pizza_profits)
+    most_profitable_index = pizza_profits.index(max_profit)
+    most_profitable_pizza = pizza_types[most_profitable_index]
+    
+    print("Profit made by each pizza type:")
+    print("-" * 30)
+    for i, pizza_type in enumerate(pizza_types):
+        print(f"{pizza_type}: £{pizza_profits[i]}")
+    
+    print("-" * 30)
+    print("\nThe most profitable pizza type is:", most_profitable_pizza)
+    print(f"Total profit made by the most profitable pizza: £{max_profit}")
+
+most_profitable_pizza()
 
 
 
 
-def user_menu():
-    while True:
-        print("Welcome to Pizza World")
-        print("1. Enter Sales Data")
-        print("2. Order New Stock")
-        print("3. View Current Stock Levels")
-        print("4. View Sales Report (Shows all sales data)")
-        print("5. View Profit Report")
-        print("6. Search for sales data by date")
-        print("7. Quit\n")
-        choice = input("Enter your choice: ")
-        if choice == "1":
-            enter_sales_data()
-        elif choice == "2":
-            order_new_stock()
-        elif choice == "3":
-            view_stock_levels()
-        elif choice == "4":
-            sales_report()
-        elif choice == "5":
-            profit_loss_report()
-        elif choice == "6":
-            search_sales_by_date()
-        elif choice == "7":
-            print("Goodbye!")
-            break
-    else:
-        print("Invalid choice. Please select a valid option.\n")
+# def user_menu():
+#     while True:
+#         print("Welcome to Pizza World")
+#         print("1. Enter Sales Data")
+#         print("2. Order New Stock")
+#         print("3. View Current Stock Levels")
+#         print("4. View Sales Report (Shows all sales data)")
+#         print("5. View Profit Report")
+#         print("6. Search for sales data by date")
+#         print("7. Quit\n")
+#         choice = input("Enter your choice: ")
+#         if choice == "1":
+#             enter_sales_data()
+#         elif choice == "2":
+#             order_new_stock()
+#         elif choice == "3":
+#             view_stock_levels()
+#         elif choice == "4":
+#             sales_report()
+#         elif choice == "5":
+#             profit_loss_report()
+#         elif choice == "6":
+#             search_sales_by_date()
+#         elif choice == "7":
+#             print("Goodbye!")
+#             break
+#     else:
+#         print("Invalid choice. Please select a valid option.\n")
 
-user_menu()
+# user_menu()
 
 
 
