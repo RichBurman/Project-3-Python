@@ -203,37 +203,40 @@ def search_sales_by_date():
         
     print(f"No sales data found for {target_date}")
 
-search_sales_by_date()
 
 
 
-# def user_menu():
-#     while True:
-#         print("Welcome to Pizza World")
-#         print("1. Enter Sales Data")
-#         print("2. Order New Stock")
-#         print("3. View Current Stock Levels")
-#         print("4. View Sales Report (Shows all sales data)")
-#         print("5. View Profit Report")
-#         print("6. Quit\n")
-#         choice = input("Enter your choice: ")
-#         if choice == "1":
-#             enter_sales_data()
-#         elif choice == "2":
-#             order_new_stock()
-#         elif choice == "3":
-#             view_stock_levels()
-#         elif choice == "4":
-#             sales_report()
-#         elif choice == "5":
-#             profit_loss_report()
-#         elif choice == "6":
-#             print("Goodbye!")
-#             break
-#     else:
-#         print("Invalid choice. Please select a valid option.\n")
 
-# user_menu()
+def user_menu():
+    while True:
+        print("Welcome to Pizza World")
+        print("1. Enter Sales Data")
+        print("2. Order New Stock")
+        print("3. View Current Stock Levels")
+        print("4. View Sales Report (Shows all sales data)")
+        print("5. View Profit Report")
+        print("6. Search for sales data by date")
+        print("7. Quit\n")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            enter_sales_data()
+        elif choice == "2":
+            order_new_stock()
+        elif choice == "3":
+            view_stock_levels()
+        elif choice == "4":
+            sales_report()
+        elif choice == "5":
+            profit_loss_report()
+        elif choice == "6":
+            search_sales_by_date()
+        elif choice == "7":
+            print("Goodbye!")
+            break
+    else:
+        print("Invalid choice. Please select a valid option.\n")
+
+user_menu()
 
 
 
