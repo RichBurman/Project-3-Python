@@ -12,6 +12,11 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('pizza_world')
 
+CHEESE_PIZZA_COST = 8  # Cheese Pizza Cost is £8
+HAM_PIZZA_COST = 9     # Ham Pizza Cost is £9
+SAUSAGE_PIZZA_COST = 10  # Sausage Pizza Cost is £10
+
+
 
 # Function to enter valid date and sales data
 
@@ -56,6 +61,8 @@ def enter_sales_data():
     print("The Sales data has been entered successfully and been added to the Sales Worksheet!\n")
     
 enter_sales_data()
+
+
 
 
 
