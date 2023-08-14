@@ -259,7 +259,7 @@ def user_menu():
         elif choice == "7":
             most_profitable_pizza()
         elif choice == "8":
-            print("Goodbye!")
+            print("Goodbye! Thank you for using Pizza World!")
             break
     else:
         print("Invalid choice. Please select a valid option.\n")
