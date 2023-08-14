@@ -34,6 +34,9 @@ def enter_sales_data():
     takes the sales data for a pizza type and muliples it by it's pizza cost, e.g. Cheese £8 x 30 Cheese Pizza sales. 
     This will do the same for all 3 types of pizza and then in the last column add all the 3 profits together to produce
     a total profit for the day. 
+    8. The sales data entered for each pizza type will be subtracted from the current stock level of that pizza type and this will be 
+    updated in the stock worksheet. If the stock level for any pizza type goes below 50 items, a print message will inform
+    the user that the current stock is low and they may wish to place a new order. 
     """
     print(" Please enter the Sales Data for today.\n")
 
@@ -151,7 +154,12 @@ def view_stock_levels():
 
 # Daily Sales Report
 
+
+
 def sales_report():
+    """
+    This function allows the user to view all the entered sales data record from the sales data worksheet. 
+    """
     print("Sales Report\n")
     sales_data = SHEET.worksheet("sales").get_all_values()
     for row in sales_data:
@@ -164,7 +172,11 @@ def sales_report():
 
 # Profit and Loss
 
+
 def profit_loss_report():
+    """
+    This function allows the user to view all profits or losses made by each pizza type and the total profit overall. 
+    """
     print("Profit and Loss Report\n")
     profits = SHEET.worksheet("profit").get_all_values()
     total_profit = 0
@@ -184,6 +196,9 @@ def profit_loss_report():
 # Search for sales data by date
 
 def search_sales_by_date():
+    """
+    This function allows the user to search for sales data from a specific date inputted by the user. 
+    """
     print("Search Sales Data by Date\n")
     target_date = input("Enter the date (YYYY-MM-DD): ")
     sales_data = SHEET.worksheet('sales').get_all_values()
@@ -204,6 +219,9 @@ def search_sales_by_date():
     print(f"No sales data found for {target_date}")
 
 def most_profitable_pizza():
+    """
+    This function allows the user to see which pizza has made the most profit, out of Cheese, Ham and Sausage. It also displays how much profit overall that pizza has made for Pizza World.
+    """
     print("Most Profitable Pizza Type\n")
     profits = SHEET.worksheet("profit").get_all_values()
     
