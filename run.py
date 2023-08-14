@@ -1,4 +1,4 @@
-import gspread
+import gspread, re
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -13,10 +13,9 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('pizza_world')
 
 
-# Function to enter date and sales data
+# Function to enter valid date and sales data
 
 def enter_sales_data():
-
     """
     1. This allows the user to input the date of the sales data, in a format of "YYYY-MM-DD". 
     2. This is validated to show it matches the correct date format. 
@@ -26,8 +25,41 @@ def enter_sales_data():
     ham sales and sausage sales. 
     5. This will access the "sales" worksheet and update a new row in the sales data. 
     6. A message is displayed to the user to inform them that sales data was enter and stored successfully. 
-
     """
+    print(" Please enter the Sales Data for today.\n")
+
+    # Validate date format (YYYY-MM-DD)
+    while True:
+        date = input("Enter the date (YYYY-MM-DD): ")
+        if re.match(r"^\d{4}-\d{2}-\d{2}$", date):
+            break
+        else:
+            print("Invalid date format. Please use YYYY-MM-DD format.")
+
+    # Validate sales values
+    while True:
+        try:
+            cheese_sales = int(input("Enter Cheese Pizza sales: "))
+            ham_sales = int(input("Enter Ham Pizza sales: "))
+            sausage_sales = int(input("Enter Sausage Pizza sales: "))
+            
+            if cheese_sales >= 0 and ham_sales >= 0 and sausage_sales >= 0:
+                break
+            else:
+                print("Sorry, Sales values must be non-negative integers.")
+        except ValueError:
+            print("Sorry, Invalid input. Please enter valid integers for sales.")
+
+    # Update sales data to the worksheet
+    sales_data = [date, cheese_sales, ham_sales, sausage_sales]
+    SHEET.worksheet("sales").append_row(sales_data)
+    print("The Sales data has been entered successfully and been added to the Sales Worksheet!\n")
+    
+enter_sales_data()
+
+
+
+  
 
 
 
