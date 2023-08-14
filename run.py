@@ -102,8 +102,17 @@ def view_stock_levels():
     """
     This function allows the user to view the current stock levels for all 3 types of pizza. 
     """
+    print("View Current Stock Levels\n")
+    stock_data = SHEET.worksheet("stock").get_all_values()[-1]
+    print(f"Cheese Pizzas in Stock: {stock_data[0]}")
+    print(f"Ham Pizzas in Stock: {stock_data[1]}")
+    print(f"Sausage Pizzas in Stock: {stock_data[2]}")
 
-    
+view_stock_levels()
+
+
+
+
 
 
 
