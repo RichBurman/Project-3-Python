@@ -30,6 +30,10 @@ def enter_sales_data():
     ham sales and sausage sales. 
     5. This will access the "sales" worksheet and update a new row in the sales data. 
     6. A message is displayed to the user to inform them that sales data was enter and stored successfully. 
+    7. This will calculate the daily profit on all 3 types of pizza and update the profit worksheet. This 
+    takes the sales data for a pizza type and muliples it by it's pizza cost, e.g. Cheese £8 x 30 Cheese Pizza sales. 
+    This will do the same for all 3 types of pizza and then in the last column add all the 3 profits together to produce
+    a total profit for the day. 
     """
     print(" Please enter the Sales Data for today.\n")
 
