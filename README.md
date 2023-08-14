@@ -2,32 +2,32 @@
 
 # Pizza World 
 
+<img src="assets/images/README/responsive.png" width="800" height="600" alt="Image of Am I responsive"> 
+
+
 Pizza World is a Python terminal program which runs in the Code Institute mock terminal on Heroku. 
 
 
-Pizza World is designed for a pizza company which sells 3 types of pizza:
+Pizza World is designed for a pizza company which currently sells 3 types of pizza:
 - Cheese Pizza
 - Ham Pizza 
 - Sausage Pizza
 
-Pizza World allows the user to:
-- Input the daily sales of the pizza types
-- Upload sales to a google worksheet
-- Update the new stock levels for the next day
-- Upload stock levels to a google worksheet
-- Calculate the daily surplus pizzas
-- Upload the surplus to a google worksheet
-- Calculate the profit made on the pizza types each having a different profit margin
-- Upload the profit of each type of pizza to a google worksheet
-- Display to the user the total sales of each pizza for the day
-- Display to the user the profit per pizza for the day
-- Display the total profit made for the day from all pizza sales
+Pizza World allows the user to perform various functions which are listed below: 
+
+- Enter and store daily sales for the 3 types of pizza into Pizza World. 
+- Order new stock of pizzas for the pizza company
+- View current stock levels of the 3 types of pizza
+- View a sales report which shows all the sales of pizza by Pizza World
+- View a Profit Report which shows the user which displays all the profits from the sales data and diplay the total profit
+- View the most profitable pizza which shows the user which pizza has made the most profits for Pizza World and shows how much this profit is
+
+
 
 [Here is the live version of the project](https://pizza-world.herokuapp.com/)
 
 [Here is a live link to the google worksheet](https://docs.google.com/spreadsheets/d/1S1hgp-PmgAoM8KUjN3stYeTxWITjOD4pQTnUQbdar2Y/edit?usp=sharing)
 
-<img src="assets/images/README/responsive.png" width="800" height="600" alt="Image of Am I responsive"> 
 
 
 

@@ -112,10 +112,24 @@ def order_new_stock():
     print(f"Cheese Pizzas in Stock: {current_stock[0]}")
     print(f"Ham Pizzas in Stock: {current_stock[1]}")
     print(f"Sausage Pizzas in Stock: {current_stock[2]}")
-    # User inputs stock to order
-    cheese_qty = int(input("Enter quantity of Cheese Pizzas to order: "))
-    ham_qty = int(input("Enter quantity of Ham Pizzas to order: "))
-    sausage_qty = int(input("Enter quantity of Sausage Pizzas to order: "))
+
+    # Function to get valid integer input only!
+    def get_valid_input(prompt):
+        while True:
+            try:
+                value = int(input(prompt))
+                if value < 0:
+                    print("Please enter a non-negative value.")
+                else:
+                    return value
+            except ValueError:
+                print("Invalid input. Please enter a valid integer.")
+    
+    # User inputs stock to order using get_valid_input()
+    cheese_qty = get_valid_input("Enter quantity of Cheese Pizzas to order: ")
+    ham_qty = get_valid_input("Enter quantity of Ham Pizzas to order: ")
+    sausage_qty = get_valid_input("Enter quantity of Sausage Pizzas to order: ")
+
     # Updates stock worksheet
     stock_sheet = SHEET.worksheet("stock")
     current_stock = stock_sheet.get_all_values()[-1]
@@ -133,7 +147,7 @@ def order_new_stock():
     print(f"Ham Pizzas in Stock: {new_stock[1]}")
     print(f"Sausage Pizzas in Stock: {new_stock[2]}")
 
-    # Update the current_stock with the new stock values so user can see stock has been updated
+    # Update the current_stock with the new stock values so the user can see stock has been updated
     current_stock = new_stock
 
 
