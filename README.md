@@ -172,14 +172,70 @@ I have manually tested this project by undertaking the following steps:
 
 Manual testing example below:
 
-<img src="assets/images/README/validation_and_error_checks.png" width="500" height="250" alt="Image of manual testing validation and errors checks"> 
+### User Menu
 
+The user can only enter numbers between 1-8 that will be accepted to access the functions. 
+
+<img src="assets/images/README/menu_valid.png" alt="Image of the sales data report">
+
+In addition to this, all number choices lead to the correct function as expected. 
+
+
+### 1 Enter Sales Data
+
+The user can only enter numbers in the correct format to be accepted by the function. 
+
+<img src="assets/images/README/sales_date_date_valid.png" alt="Image of the sales data report">
+
+### 2 Order New Stock
+
+The user can only enter numbers to order new stock. 
+
+<img src="assets/images/README/order_stock_num.png" alt="Image of the sales data report">
+
+
+### 3 View Current stock levels
+
+The user does not need to enter any data, other than the menu choice in the menu. This information is displayed as expected. 
+
+### 4 View Sales Report
+
+The user does not need to enter any data, other than the menu choice in the menu. This information is displayed as expected.
+
+### 5 View Profit Report
+
+The user does not need to enter any data, other than the menu choice in the menu. This information is displayed as expected.
+
+### 6 Search for sales data by date
+
+The user has to input the date in the correct format to be accepted. 
+ 
+<img src="assets/images/README/sales_date_valid.png" alt="Image of the sales data report">
+
+Once this is entered, the function works as expected and will display sales data linked to that date if it exists, otherwise it will display a message saying that sales data is not found.
+
+
+<img src="assets/images/README/search_by_date_success.png" alt="Image of the sales data report">
+
+However, if there is no sales data for that given date, the user is informed that there is no sales data for that date. 
+
+<img src="assets/images/README/search_by_date_nodata.png" alt="Image of the sales data report">
+
+### 7 View the most profitable pizza
+
+The user does not need to enter any data, other than the menu choice in the menu. This information is displayed as expected.
+
+### 8 Quit
+
+The user does not need to enter any data, other than the menu choice in the menu. The program is ended as expected. 
 
 ## Bugs
+
  ### Solved Bugs
 
-- I was receiving an error index because I had forgotten to add 'int' at the start of the various (profit_row). I fixed this by adding 'int' to all of the profit_row variables, which allowed the calculation to take place.
-<img src="assets/images/README/solved_bug.png" width="150" height="300" alt="Image of solved bug"> 
+ - I had an error when first entering stock levels for the first time. If the stock levels aren't on the spreadsheet as a number to begin, any new stock was trying to add to the headings of the columns. I solved this by adding the first line of starting stock to the spreadsheet and this then worked with the project. 
+
+
 
 
 ### Remaining Bugs
@@ -206,5 +262,6 @@ Manual testing example below:
 
 ## Credits
 
-- Code Institute for the deployment terminal 
-- Thanks to my mentor for his guidance and support during our mentor meetings
+- Code Institute for the deployment terminal
+- Code Institute Slack members for support
+- Family and Friends for support throughout project.
