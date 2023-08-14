@@ -64,6 +64,7 @@ def enter_sales_data():
     SHEET.worksheet("sales").append_row(sales_data)
     print("The Sales data has been entered successfully and been added to the Sales Worksheet!\n")
 
+    # Calculates profit for each pizza type and a total profit all sales of pizza that day
     cheese_profit = cheese_sales * CHEESE_PIZZA_COST
     ham_profit = ham_sales * HAM_PIZZA_COST
     sausage_profit = sausage_sales * SAUSAGE_PIZZA_COST
@@ -109,6 +110,7 @@ def view_stock_levels():
     print(f"Sausage Pizzas in Stock: {stock_data[2]}")
 
 view_stock_levels()
+
 
 
 
