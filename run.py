@@ -74,12 +74,29 @@ def enter_sales_data():
     
 enter_sales_data()
 
-def order_new_stock()
+def order_new_stock():
+    """
+    This function allows the user to order new stock for each type of pizza (This will add on to the existing stock) and updates the stock worksheet.
+    """
+    print("Order New Stock\n")
+    
+    cheese_qty = int(input("Enter quantity of Cheese Pizzas to order: "))
+    ham_qty = int(input("Enter quantity of Ham Pizzas to order: "))
+    sausage_qty = int(input("Enter quantity of Sausage Pizzas to order: "))
 
-"""
-This function will allow the user to order new stock for each type of pizza. It will update the stock worksheet. 
-"""
+    stock_sheet = SHEET.worksheet("stock")
+    current_stock = stock_sheet.get_all_values()[-1]
+    
+    new_stock = [
+        int(current_stock[0]) + cheese_qty,
+        int(current_stock[1]) + ham_qty,
+        int(current_stock[2]) + sausage_qty
+    ]
+    
+    stock_sheet.append_row(new_stock)
+    print("New stock ordered successfully and the stock worksheet has been updated!\n")
 
+order_new_stock()
 
 
 
