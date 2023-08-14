@@ -1,4 +1,5 @@
-import gspread, re
+import gspread
+import re
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -16,27 +17,25 @@ CHEESE_PIZZA_COST = 8  # Cheese Pizza Cost is £8
 HAM_PIZZA_COST = 9     # Ham Pizza Cost is £9
 SAUSAGE_PIZZA_COST = 10  # Sausage Pizza Cost is £10
 
-
-
 # Function to enter valid date and sales data
 
 def enter_sales_data():
     """
-    1. This allows the user to input the date of the sales data, in a format of "YYYY-MM-DD". 
-    2. This is validated to show it matches the correct date format. 
+    1. This allows the user to input the date of the sales data, in a format of "YYYY-MM-DD".
+    2. This is validated to show it matches the correct date format.
     3. The sales data entered with by 3 types of pizza, Cheese, Ham and Sausage. The numbers entered
-    by the user must be non-negative, otherwise the loop will display an error message. 
-    4. Once data entered is valid, the function will create a list which contains the date, cheese sales, 
-    ham sales and sausage sales. 
-    5. This will access the "sales" worksheet and update a new row in the sales data. 
-    6. A message is displayed to the user to inform them that sales data was enter and stored successfully. 
-    7. This will calculate the daily profit on all 3 types of pizza and update the profit worksheet. This 
-    takes the sales data for a pizza type and muliples it by it's pizza cost, e.g. Cheese £8 x 30 Cheese Pizza sales. 
+    by the user must be non-negative, otherwise the loop will display an error message.
+    4. Once data entered is valid, the function will create a list which contains the date, cheese sales,
+    ham sales and sausage sales.
+    5. This will access the "sales" worksheet and update a new row in the sales data.
+    6. A message is displayed to the user to inform them that sales data was enter and stored successfully.
+    7. This will calculate the daily profit on all 3 types of pizza and update the profit worksheet. This
+    takes the sales data for a pizza type and muliples it by it's pizza cost, e.g. Cheese £8 x 30 Cheese Pizza sales.
     This will do the same for all 3 types of pizza and then in the last column add all the 3 profits together to produce
-    a total profit for the day. 
-    8. The sales data entered for each pizza type will be subtracted from the current stock level of that pizza type and this will be 
+    a total profit for the day.
+    8. The sales data entered for each pizza type will be subtracted from the current stock level of that pizza type and this will be
     updated in the stock worksheet. If the stock level for any pizza type goes below 50 items, a print message will inform
-    the user that the current stock is low and they may wish to place a new order. 
+    the user that the current stock is low and they may wish to place a new order.
     """
     print(" Please enter the Sales Data for today.\n")
 
@@ -54,7 +53,6 @@ def enter_sales_data():
             cheese_sales = int(input("Enter Cheese Pizza sales: "))
             ham_sales = int(input("Enter Ham Pizza sales: "))
             sausage_sales = int(input("Enter Sausage Pizza sales: "))
-            
             if cheese_sales >= 0 and ham_sales >= 0 and sausage_sales >= 0:
                 break
             else:
@@ -100,7 +98,6 @@ def enter_sales_data():
             print(f"{item} are running low (stock: {new_quantity}) You may want to consider ordering more stock.")
 
 
-
 def order_new_stock():
     """
     This function allows the user to order new stock for each type of pizza (This will add on to the existing stock) and updates the stock worksheet.
@@ -109,26 +106,24 @@ def order_new_stock():
 
     stock_sheet = SHEET.worksheet("stock")
     current_stock = stock_sheet.get_all_values()[-1]
-    
+    # Show current stock
     print("Current Stock Levels:")
     print(f"Cheese Pizzas in Stock: {current_stock[0]}")
     print(f"Ham Pizzas in Stock: {current_stock[1]}")
     print(f"Sausage Pizzas in Stock: {current_stock[2]}")
-    
-    
+    # User inputs stock to order
     cheese_qty = int(input("Enter quantity of Cheese Pizzas to order: "))
     ham_qty = int(input("Enter quantity of Ham Pizzas to order: "))
     sausage_qty = int(input("Enter quantity of Sausage Pizzas to order: "))
-
+    # Updates stock worksheet
     stock_sheet = SHEET.worksheet("stock")
     current_stock = stock_sheet.get_all_values()[-1]
-    
+    # Displays new stock levels
     new_stock = [
         int(current_stock[0]) + cheese_qty,
         int(current_stock[1]) + ham_qty,
         int(current_stock[2]) + sausage_qty
     ]
-    
     # Displays to the user that the stock has been updated. 
     stock_sheet.append_row(new_stock)
     print("New stock ordered successfully and the stock worksheet has been updated!\n")
@@ -140,7 +135,6 @@ def order_new_stock():
     # Update the current_stock with the new stock values so user can see stock has been updated
     current_stock = new_stock
 
-
 def view_stock_levels():
     """
     This function allows the user to view the current stock levels for all 3 types of pizza. 
@@ -151,14 +145,11 @@ def view_stock_levels():
     print(f"Ham Pizzas in Stock: {stock_data[1]}")
     print(f"Sausage Pizzas in Stock: {stock_data[2]}")
 
-
 # Daily Sales Report
-
-
 
 def sales_report():
     """
-    This function allows the user to view all the entered sales data record from the sales data worksheet. 
+    This function allows the user to view all the entered sales data record from the sales data worksheet.
     """
     print("Sales Report\n")
     sales_data = SHEET.worksheet("sales").get_all_values()
@@ -175,7 +166,7 @@ def sales_report():
 
 def profit_loss_report():
     """
-    This function allows the user to view all profits or losses made by each pizza type and the total profit overall. 
+    This function allows the user to view all profits or losses made by each pizza type and the total profit overall.
     """
     print("Profit and Loss Report\n")
     profits = SHEET.worksheet("profit").get_all_values()
@@ -194,6 +185,7 @@ def profit_loss_report():
     print(f"{'Total Profit:':<60}{total_profit:>10}\n")
 
 # Search for sales data by date
+
 
 def search_sales_by_date():
     """
@@ -240,14 +232,10 @@ def most_profitable_pizza():
     print("-" * 30)
     for i, pizza_type in enumerate(pizza_types):
         print(f"{pizza_type}: £{pizza_profits[i]}")
-    
+
     print("-" * 30)
     print("\nThe most profitable pizza type is:", most_profitable_pizza)
     print(f"Total profit made by the most profitable pizza: £{max_profit}")
-
-
-
-
 
 
 def user_menu():
@@ -282,18 +270,8 @@ def user_menu():
     else:
         print("Invalid choice. Please select a valid option.\n")
 
+
 user_menu()
-
-
-
-
-
-
-
-
-  
-
-
 
 # def get_sales_data():
 
