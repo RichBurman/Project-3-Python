@@ -66,7 +66,7 @@ def enter_sales_data():
     total_profit = cheese_profit + ham_profit + sausage_profit
     profit_sheet = SHEET.worksheet("profit")
     profit_sheet.append_row([date, cheese_profit, ham_profit, sausage_profit, total_profit])
-    print("Profit and loss updated successfully!\n")
+    print("Profit and loss worksheet has been updated successfully!\n")
     
 enter_sales_data()
 
