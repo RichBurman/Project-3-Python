@@ -19,6 +19,7 @@ SAUSAGE_PIZZA_COST = 10  # Sausage Pizza Cost is £10
 
 # Function to enter valid date and sales data
 
+
 def enter_sales_data():
     """
     1. This allows the user to input the date of the sales data, in a format of "YYYY-MM-DD".
@@ -124,7 +125,7 @@ def order_new_stock():
         int(current_stock[1]) + ham_qty,
         int(current_stock[2]) + sausage_qty
     ]
-    # Displays to the user that the stock has been updated. 
+    # Displays to the user that the stock has been updated.
     stock_sheet.append_row(new_stock)
     print("New stock ordered successfully and the stock worksheet has been updated!\n")
     print("Here are the updated stock levels:\n")
@@ -134,6 +135,7 @@ def order_new_stock():
 
     # Update the current_stock with the new stock values so user can see stock has been updated
     current_stock = new_stock
+
 
 def view_stock_levels():
     """
@@ -145,8 +147,8 @@ def view_stock_levels():
     print(f"Ham Pizzas in Stock: {stock_data[1]}")
     print(f"Sausage Pizzas in Stock: {stock_data[2]}")
 
-# Daily Sales Report
 
+# Daily Sales Report
 def sales_report():
     """
     This function allows the user to view all the entered sales data record from the sales data worksheet.
