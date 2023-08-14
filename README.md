@@ -63,7 +63,7 @@ The user has to enter the number of their choice. It must be a number between 1-
 <img src="assets/images/README/menu_valid.png" alt="Image of Flowchart"> 
 
 
-#### Enter Sales Data
+#### 1 Enter Sales Data
 
 The function allows the user to enter the sales data for the 3 pizzas, the user can select the date for the sales data to be assigned to. 
 
@@ -89,6 +89,33 @@ After a user has inputted the sales data successfully, if stock levels for a piz
 
 <img src="assets/images/README/low_stock.png" alt="Image of Flowchart"> 
 
+#### 2 Order New Stock
+
+This function allows the user to order new stock for each pizza type. 
+
+It display to the user the following:
+
+- Current stock levels - so the user can use this information to decide how much new stock they wish to order
+- Input box to allow them to enter how much new stock for each pizza they would like. This data must be entered correctly to meet validation requirements. 
+
+<img src="assets/images/README/order_stock.png" alt="Image of ordering stock"> 
+
+
+Once this data has been inputted. The user is informed that the New stock has been ordered successfully and the stock worksheet has been updated. 
+
+In addition to this, the updated stock levels are displayed to the user, show they can see the new stock levels for each pizza type.
+
+##### Updated Stock Image
+
+<img src="assets/images/README/updated_stock.png" alt="Image of Updated stock"> 
+
+#### View Current Stock Levels
+
+This function allows the user to view the current stock levels of all 3 pizza types. It will display the stock levels of all pizzas and return the user to the user menu. 
+
+<img src="assets/images/README/view_stock.png" alt="Image of Updated stock"> 
+
+
 
 
 
@@ -96,6 +123,8 @@ After a user has inputted the sales data successfully, if stock levels for a piz
 
 
 - Future Features
+
+ - When a user inputs the sales data and stock levels drop below 50, an option for the user to order new stock to appear and perform the function, without having to access new order from the user menu. 
 
 
 ## Testing
