@@ -96,10 +96,7 @@ def enter_sales_data():
         if new_quantity < stock_threshold:
             print(f"{item} are running low (stock: {new_quantity}) You may want to consider ordering more stock.")
 
-    
 
-    
-enter_sales_data()
 
 def order_new_stock():
     """
@@ -123,7 +120,7 @@ def order_new_stock():
     stock_sheet.append_row(new_stock)
     print("New stock ordered successfully and the stock worksheet has been updated!\n")
 
-order_new_stock()
+
 
 def view_stock_levels():
     """
@@ -135,7 +132,28 @@ def view_stock_levels():
     print(f"Ham Pizzas in Stock: {stock_data[1]}")
     print(f"Sausage Pizzas in Stock: {stock_data[2]}")
 
-view_stock_levels()
+
+def user_menu():
+    while True:
+        print("Welcome to Pizza World")
+        print("1. Enter Sales Data")
+        print("2. Order New Stock")
+        print("3. View Current Stock Levels")
+        print("4. Quit\n")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            enter_sales_data()
+        elif choice == "2":
+            order_new_stock()
+        elif choice == "3":
+            view_stock_levels()
+        elif choice == "4":
+            print("Goodbye!")
+            break
+    else:
+        print("Invalid choice. Please select a valid option.\n")
+
+user_menu()
 
 
 
