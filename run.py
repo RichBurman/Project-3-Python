@@ -77,13 +77,20 @@ def enter_sales_data():
 
     stock_sheet = SHEET.worksheet("stock")
     current_stock = stock_sheet.get_all_values()[-1]
-    new_stock = [
-    int(current_stock[0]) - cheese_sales,
-    int(current_stock[1]) - ham_sales,
-    int(current_stock[2]) - sausage_sales
-    ]
+
+    try:
+        new_stock = [
+            int(current_stock[0]) - cheese_sales,
+            int(current_stock[1]) - ham_sales,
+            int(current_stock[2]) - sausage_sales
+        ]
+    except ValueError:
+        print("Error: Invalid stock data. Please check the stock worksheet for correct values.")
+
     stock_sheet.append_row(new_stock)
     print("Stock updated successfully!\n")
+
+    # Check current stock levels and if any stock item is below 50 items, informs user and advises ordering new stock.
 
     
 enter_sales_data()
