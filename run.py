@@ -90,6 +90,11 @@ def enter_sales_data():
     stock_sheet.append_row(new_stock)
     print("Stock updated successfully!\n")
 
+    stock_threshold = 50
+    for item, new_quantity, stock_value in zip(["Cheese Pizzas", "Ham Pizzas", "Sausage Pizzas"], new_stock, new_stock):
+        if new_quantity < stock_threshold:
+            print(f"{item} are running low (stock: {new_quantity}).")
+
     # Check current stock levels and if any stock item is below 50 items, informs user and advises ordering new stock.
 
     
