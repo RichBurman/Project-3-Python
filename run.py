@@ -103,6 +103,15 @@ def order_new_stock():
     This function allows the user to order new stock for each type of pizza (This will add on to the existing stock) and updates the stock worksheet.
     """
     print("Order New Stock\n")
+
+    stock_sheet = SHEET.worksheet("stock")
+    current_stock = stock_sheet.get_all_values()[-1]
+    
+    print("Current Stock Levels:")
+    print(f"Cheese Pizzas in Stock: {current_stock[0]}")
+    print(f"Ham Pizzas in Stock: {current_stock[1]}")
+    print(f"Sausage Pizzas in Stock: {current_stock[2]}")
+    
     
     cheese_qty = int(input("Enter quantity of Cheese Pizzas to order: "))
     ham_qty = int(input("Enter quantity of Ham Pizzas to order: "))
@@ -117,8 +126,18 @@ def order_new_stock():
         int(current_stock[2]) + sausage_qty
     ]
     
+    # Displays to the user that the stock has been updated. 
     stock_sheet.append_row(new_stock)
     print("New stock ordered successfully and the stock worksheet has been updated!\n")
+    print("Here are the updated stock levels:\n")
+    print(f"Cheese Pizzas in Stock: {new_stock[0]}")
+    print(f"Ham Pizzas in Stock: {new_stock[1]}")
+    print(f"Sausage Pizzas in Stock: {new_stock[2]}")
+
+    # Update the current_stock with the new stock values so user can see stock has been updated
+    current_stock = new_stock
+
+    
 
 
 
