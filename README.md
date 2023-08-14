@@ -1,16 +1,16 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-# PizzaWorld 
+# Pizza World 
 
-PizzaWorld is a Python terminal program which runs in the Code Institute mock terminal on Heroku. 
+Pizza World is a Python terminal program which runs in the Code Institute mock terminal on Heroku. 
 
 
-PizzaWorld is designed for a pizza company which sells 3 types of pizza:
+Pizza World is designed for a pizza company which sells 3 types of pizza:
 - Cheese Pizza
 - Ham Pizza 
 - Sausage Pizza
 
-PizzaWorld allows the user to:
+Pizza World allows the user to:
 - Input the daily sales of the pizza types
 - Upload sales to a google worksheet
 - Update the new stock levels for the next day
