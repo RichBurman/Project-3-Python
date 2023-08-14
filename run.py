@@ -137,9 +137,6 @@ def order_new_stock():
     # Update the current_stock with the new stock values so user can see stock has been updated
     current_stock = new_stock
 
-    
-
-
 
 def view_stock_levels():
     """
@@ -152,27 +149,46 @@ def view_stock_levels():
     print(f"Sausage Pizzas in Stock: {stock_data[2]}")
 
 
-def user_menu():
-    while True:
-        print("Welcome to Pizza World")
-        print("1. Enter Sales Data")
-        print("2. Order New Stock")
-        print("3. View Current Stock Levels")
-        print("4. Quit\n")
-        choice = input("Enter your choice: ")
-        if choice == "1":
-            enter_sales_data()
-        elif choice == "2":
-            order_new_stock()
-        elif choice == "3":
-            view_stock_levels()
-        elif choice == "4":
-            print("Goodbye!")
-            break
-    else:
-        print("Invalid choice. Please select a valid option.\n")
+# Daily Sales Report
 
-user_menu()
+def sales_report():
+    print("Sales Report\n")
+    sales_data = SHEET.worksheet("sales").get_all_values()
+    for row in sales_data:
+        date = row[0]
+        cheese_sales = row[1]
+        ham_sales = row[2]
+        sausage_sales = row[3]
+        print(f"Date: {date}\n")
+        print(f"Cheese Pizza Sales: {cheese_sales}")
+        print(f"Ham Pizza Sales: {ham_sales}")
+        print(f"Sausage Pizza Sales: {sausage_sales}\n")
+        print("-" * 30)
+
+sales_report()
+
+
+# def user_menu():
+#     while True:
+#         print("Welcome to Pizza World")
+#         print("1. Enter Sales Data")
+#         print("2. Order New Stock")
+#         print("3. View Current Stock Levels")
+#         print("4. Quit\n")
+#         choice = input("Enter your choice: ")
+#         if choice == "1":
+#             enter_sales_data()
+#         elif choice == "2":
+#             order_new_stock()
+#         elif choice == "3":
+#             view_stock_levels()
+#         elif choice == "4":
+#             print("Goodbye!")
+#             break
+#     else:
+#         print("Invalid choice. Please select a valid option.\n")
+
+# user_menu()
 
 
 
