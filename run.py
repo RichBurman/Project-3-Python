@@ -165,7 +165,27 @@ def sales_report():
         print(f"Sausage Pizza Sales: {sausage_sales}\n")
         print("-" * 30)
 
-sales_report()
+# Profit and Loss
+
+def profit_loss_report():
+    print("Profit and Loss Report\n")
+    profits = SHEET.worksheet("profit").get_all_values()
+    total_profit = 0
+    print(f"{'Date':<15}{'Cheese':<15}{'Ham':<15}{'Sausage':<15}{'Total':<15}")
+    print("=" * 70)
+    for profit_row in profits[1:]:
+        date = profit_row[0]
+        cheese_profit = int(profit_row[1])
+        ham_profit = int(profit_row[2])
+        sausage_profit = int(profit_row[3])
+        daily_total_profit = int(profit_row[4])
+        print(f"{date:<15}{cheese_profit:<15}{ham_profit:<15}{sausage_profit:<15}{daily_total_profit:<15}")
+        total_profit += daily_total_profit
+    print("=" * 70)
+    print(f"{'Total Profit:':<60}{total_profit:>10}\n")
+
+profit_loss_report()
+
 
 
 # def user_menu():
@@ -174,7 +194,8 @@ sales_report()
 #         print("1. Enter Sales Data")
 #         print("2. Order New Stock")
 #         print("3. View Current Stock Levels")
-#         print("4. Quit\n")
+#         print("4. View Sales Report (Shows all sales data)")
+#         print("5. Quit\n")
 #         choice = input("Enter your choice: ")
 #         if choice == "1":
 #             enter_sales_data()
@@ -183,6 +204,8 @@ sales_report()
 #         elif choice == "3":
 #             view_stock_levels()
 #         elif choice == "4":
+#             sales_report()
+#         elif choice == "5":
 #             print("Goodbye!")
 #             break
 #     else:
