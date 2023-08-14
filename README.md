@@ -109,22 +109,57 @@ In addition to this, the updated stock levels are displayed to the user, show th
 
 <img src="assets/images/README/updated_stock.png" alt="Image of Updated stock"> 
 
-#### View Current Stock Levels
+#### 3 View Current Stock Levels
 
 This function allows the user to view the current stock levels of all 3 pizza types. It will display the stock levels of all pizzas and return the user to the user menu. 
 
-<img src="assets/images/README/view_stock.png" alt="Image of Updated stock"> 
+<img src="assets/images/README/view_stock.png" alt="Image of Updated stock">
 
+#### 4 View Sales Report
 
+This function allows the user to view the sales data that has been entered in the past. It displays the date, the type of pizza and how many were sold on that date. 
 
+<img src="assets/images/README/sales_data_report.png" alt="Image of the sales data report">
 
+#### 5 View Profit Report
 
+This function allows the user to view the profit data of the pizza for all the sales data dates. 
 
+<img src="assets/images/README/profit_report.png" alt="Image of the sales data report">
 
+#### 6 Search for sales data by date
+
+This function allows the user to search for a specific sales data entry by it's date. 
+
+<img src="assets/images/README/search_by_date.png" alt="Image of the sales data report">
+
+Once the user input the date, the user is shown that sales data entry. 
+
+<img src="assets/images/README/search_by_date_success.png" alt="Image of the sales data report">
+
+However, if there is no sales data for that given date, the user is informed that there is no sales data for that date. 
+
+<img src="assets/images/README/search_by_date_nodata.png" alt="Image of the sales data report">
+
+#### 7 View the most profitable pizza
+
+This function allows the user to view which pizza has provided the most profit to Pizza World. It allows the user to see at ease, which is the most profitable pizza and may aid them making future business decisions. 
+
+It displays the profit of all pizza sales of the respective type of pizza and then below it displays which is the most profitable pizza. 
+
+<img src="assets/images/README/profit_pizza.png" alt="Image of the sales data report">
 
 - Future Features
 
  - When a user inputs the sales data and stock levels drop below 50, an option for the user to order new stock to appear and perform the function, without having to access new order from the user menu. 
+
+ - A login and logout function, where different levels of staff can access different levels of the user menu. 
+
+ - The function to be able to delete sales data
+
+ - The function to be able to add new pizzas types
+
+ - The function to be able to adjust the pizza cost. 
 
 
 ## Testing
