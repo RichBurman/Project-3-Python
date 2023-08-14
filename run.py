@@ -17,17 +17,18 @@ SHEET = GSPREAD_CLIENT.open('pizza_world')
 
 def enter_sales_data():
 
-"""
-1. This allows the user to input the date of the sales data, in a format of "YYYY-MM-DD". 
-2. This is validated to show it matches the correct date format. 
-3. The sales data entered with by 3 types of pizza, Cheese, Ham and Sausage. The numbers entered
-by the user must be non-negative, otherwise the loop will display an error message. 
-4. Once data entered is valid, the function will create a list which contains the date, cheese sales, 
-ham sales and sausage sales. 
-5. This will access the "sales" worksheet and update a new row in the sales data. 
-6. A message is displayed to the user to inform them that sales data was enter and stored successfully. 
+    """
+    1. This allows the user to input the date of the sales data, in a format of "YYYY-MM-DD". 
+    2. This is validated to show it matches the correct date format. 
+    3. The sales data entered with by 3 types of pizza, Cheese, Ham and Sausage. The numbers entered
+    by the user must be non-negative, otherwise the loop will display an error message. 
+    4. Once data entered is valid, the function will create a list which contains the date, cheese sales, 
+    ham sales and sausage sales. 
+    5. This will access the "sales" worksheet and update a new row in the sales data. 
+    6. A message is displayed to the user to inform them that sales data was enter and stored successfully. 
 
-"""
+    """
+
 
 
 # def get_sales_data():
