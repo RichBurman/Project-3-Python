@@ -72,6 +72,19 @@ def enter_sales_data():
     profit_sheet = SHEET.worksheet("profit")
     profit_sheet.append_row([date, cheese_profit, ham_profit, sausage_profit, total_profit])
     print("Profit and loss worksheet has been updated successfully!\n")
+
+    # Update the stock levels after the sales data has been entered. (Stock item level - item sales)
+
+    stock_sheet = SHEET.worksheet("stock")
+    current_stock = stock_sheet.get_all_values()[-1]
+    new_stock = [
+    int(current_stock[0]) - cheese_sales,
+    int(current_stock[1]) - ham_sales,
+    int(current_stock[2]) - sausage_sales
+    ]
+    stock_sheet.append_row(new_stock)
+    print("Stock updated successfully!\n")
+
     
 enter_sales_data()
 
